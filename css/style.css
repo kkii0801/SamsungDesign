@@ -1,0 +1,1038 @@
+body, h1, h2, h3, h4, h5, h6, p, ul, ol, table, dl, dd {
+	margin: 0;
+	padding: 0;
+}
+h1 {
+	font-size: 16px;
+}
+a {
+	text-decoration: none;
+	color: #000;
+}
+ul, ol {
+	list-style: none;
+}
+img {
+	max-width: 100%;
+	vertical-align: top;
+	border: none;
+}
+body {
+	font-family: "Roboto", "Noto Sans KR", sans-serif;
+	margin: 0 auto;
+}
+button {
+	all: unset;
+	cursor: pointer;
+}
+body.fixed {
+	overflow-y: hidden;
+}
+
+/* common css */
+section:not(:nth-of-type(1)) h2 {
+	padding-left: 1em;
+	position: relative;
+}
+section i {
+	display: block;
+	padding-top: 1.625em;
+	font-style: normal;
+	font-size: 0.75em;
+	color: #222;
+	transition: all 0.3s ease-out;
+}
+section:not(:nth-of-type(1)) .title h2 {
+	display: inline;
+	font-size: 2.5em;
+	transition: all 0.3s ease-out;
+}
+section .image {
+	overflow: hidden;
+}
+section .image img {
+	display: block;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	transform: scale(1);
+	transition: transform 0.5s ease-out;
+}
+section .image img:hover {
+	transform: scale(1.05);
+}
+section .image a {
+	display: block;
+}
+section .content ul li {
+	overflow: hidden;
+} 
+section .content h3 a {
+	display: block;
+	padding: 1em 0 10px 0;
+	font-size: 1.625em;
+	transition: all 0.3s ease-out;
+}
+section .content ul span {
+	font-size: 1.125em;
+	transition: all 0.3s ease-out;
+}
+section:not(:nth-of-type(2)) .content ul li .image {
+	position: relative;
+}
+section:not(:nth-of-type(2)) .content ul li .image::after {
+	content: "";
+	position: absolute;
+	top: -1px;
+	right: -1px;
+	width: 50px;
+	height: 50px;
+	background-color: #fff;
+}
+@media only screen and (max-width: 930px) {
+	section i {
+		padding-top: 0em;
+		font-size: 1.5em;
+	}
+	section .content h3 a {
+		padding: 1.25em 0 0.875em 0;
+		font-size: 2em;
+	}
+	section .content ul span {
+		font-size: 1.625em;
+		padding-bottom: 1em;
+	}
+	section:nth-of-type(2) .content ul span {
+		font-size: 1.75em;
+		padding-bottom: 1em;
+	}
+	
+}
+@media only screen and (max-width: 720px) {
+	section i {
+		font-size: 1.25em;
+	}
+	section:not(:nth-of-type(1)) .title h2 {
+		padding-left: 1.375em;
+		font-size: 2em;
+	}
+	section .content h3 a {
+		font-size: 1.75em;
+	}
+	section .content ul span {
+		font-size: 1.375em;
+	}
+}
+
+#start header {
+	position: fixed;
+	left: 0;
+	top: 0;
+	z-index: 1000;
+	width: 100%;
+	height: 5.625em;
+	background-color: #fff;
+	box-sizing: border-box;
+}
+#start header > .inner {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 0 3em;
+	height: 100%;
+}
+#start .left,
+#start .right {
+	display: flex;
+	gap: 2em;
+}
+#start .logo a {
+	display: block;
+	font-size: 0;
+	text-indent: -9999px;
+	width: 181px;
+	height: 25px;
+	background: url(../images/header-logo-samsung-design-svg.svg) no-repeat;
+	transition: all 0.3s ease-out;
+}
+#start nav ul {	
+	display: flex;
+	gap: 1.75em;
+}
+#start nav ul li a {
+	position: relative;
+	display: block;
+	line-height: 1.4444;
+	font-size: 1.125em;
+	font-weight: 600;
+}
+#start nav ul li a::after {
+	content: "";
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	border-bottom: 2px solid #000;
+	transform: scaleX(0);
+	transition: transform 0.25s ease-out;
+}
+#start nav ul li.active a::after {
+	transform: scaleX(1);
+}
+#start .right .tab {
+	display: none;
+	position: absolute;
+	top: 45%;
+	right: 3em;
+	transform: translateY(-50%);
+}
+#start header .right .tab a .button {
+	display: block;
+    position: relative;
+}
+#start header .right .tab a .button::before {
+	content: "";
+    position: absolute;
+    top: -2px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    width: 23px;
+    height: 3px;
+    background-color: #000;
+}
+#start header .right .tab.active a .button::before {
+	content: "";
+    position: absolute;
+    top: 5px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    width: 23px;
+    height: 3px;
+    background-color: #000;
+	transform: rotate(45deg);
+}
+#start header .right .tab a .button::after {
+	content: "";
+    position: absolute;
+    top: 7px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    width: 23px;
+    height: 3px;
+    background-color: #000;
+}
+#start header .right .tab.active a .button:after {
+	content: "";
+    position: absolute;
+    top: 5px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    width: 23px;
+    height: 3px;
+    background-color: #000;
+	transform: rotate(-45deg);
+}
+#start .right .index.active {
+	display: none;
+}
+#start .right .index ul li:not(:first-child) {
+	display: none;
+}
+#start .right .index ul li a {
+	line-height: 1.4444;
+	font-size: 1.125em;
+	font-weight: 600;
+}
+#start .utils {
+	display: flex;
+	gap: 2em;
+}
+#start .utils .search a {
+	display: block;
+	font-size: 0;
+	text-indent: -9999px;
+	width: 18px;
+	height: 18px;
+	background: url(../images/header-search-icn2022.svg) no-repeat;
+	transition: all 0.3s ease-out;
+}
+#start .utils .search.active {
+	display: none;
+}
+#start .utils .lang {
+	position: relative;
+	z-index: 1010;
+}
+#start .utils .lang > a {
+	display: block;
+	font-size: 0;
+	text-indent: -9999px;
+	width: 18px;
+	height: 18px;
+	background: url(../images/header-lang-icn2022.svg) no-repeat;
+}
+#start .utils .lang ul {
+	display: none;
+	position: absolute;
+	z-index: 990;
+	padding-top: 3em;
+	top: 0;
+	left: 0;
+}
+#start .utils .lang.active ul {
+	display: block;
+}
+#start .utils .lang.active .box {
+	display: block;
+	position: fixed;
+	left: 0;
+	top: 5.625em;
+	z-index: 1;
+	width: 100vw;
+	height: 9vh;
+	background-color: #fff;
+}
+#start .utils .lang ul li {
+	padding: 8px 0;
+}
+#start .utils .lang ul li a.active {
+	color: #000;
+	border-bottom: 2px solid #000;
+}
+#start .utils .lang ul li a {
+	color: #a0a0a0;
+}
+#start .dim.active {
+	display: block;
+	position: fixed;
+	z-index: 998;
+	width: 100%;
+	height: 100vh;
+	background-color: rgba(0, 0, 0, 0.5);
+}
+#start .search_container {
+	position: absolute;
+	top: -100vh;
+	left: 0;
+	z-index: 999;
+	width: 100%;
+	height: 35vh;
+	background-color: #fff;
+	transition: top 0.4s ease-out;
+}
+#start .search_container.active {
+	top: 5.625em;
+}
+#start .search_container .inner {
+	padding: 5% 2em 5% 2em;
+	text-align: center;
+}
+#start .input {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-left: auto;
+	margin-right: auto;
+	width: 35%;
+	border-bottom: 2px solid #000;
+	box-sizing: border-box;
+}
+#start input[type=text] {
+	font-family: "Roboto", "Noto Sans KR", sans-serif;
+	padding-bottom: 5px;
+	width: 100%;
+	font-size: 2.75em;
+	border: none;
+	outline: none;
+	color: #000;
+}
+#start input::placeholder {
+	color: #ccc;
+}
+#start .search_container .search_content {
+	padding-top: 1em;
+	margin-left: auto;
+	margin-right: auto;
+	width: 35%;
+	box-sizing: border-box;
+}
+#start .search_container .search_content ul {
+	display: flex;
+	justify-content: flex-start;
+	gap: 1.75em;
+}
+#start .search_container .search_content ul li a {
+	display: inline-block;
+}
+@media only screen and (max-width: 1470px) {
+	#start .input {
+		width: 60%;
+	}
+	#start .search_container .search_content {
+		width: 60%;
+	}
+}
+@media only screen and (max-width: 1200px) {
+	#start nav ul {
+		gap: 1.25em;
+	}
+	#start nav ul li a {
+		font-size: 1em;
+	}
+	#start .right .index ul li a {
+		font-size: 1em;
+	}
+	#start .utils {
+		gap: 1.5em;
+	}
+}
+@media only screen and (max-width: 930px) {
+	#start .logo a {
+		width: 217px;
+		height: 30px;
+		background-size: cover;
+	}
+	#start .right .index {
+		display: none;
+	}
+	#start .right .tab {
+		display: block;
+	}
+	#start nav  {
+		margin-top: 5.625em;
+		position: fixed;
+		right: -100%;
+		top: 0;
+		z-index: 1000;
+		width: 100%;
+		height: 100vh;
+		text-align: left;
+		background-color: #fff;
+		transform: none;
+		transition: right 0.3s ease-out;
+	}
+	#start nav.active {
+		right: 0;
+	}
+	#start nav ul {
+		display: block;
+		padding-top: 3em;
+		padding-left: 3em;
+	}
+	#start nav ul li {
+		padding: 2.5em 0;
+	}
+	#start nav ul li a {
+		font-size: 3.5em;
+	}
+	#start .utils .lang {
+		display: none;
+	}
+	#start .utils .search {
+		padding-right: 1.5em;
+	}
+	#start .utils .search a {
+		width: 23px;
+		height: 23px;
+		background-size: cover;
+	}
+	#start .search_container {
+		height: 40vw;
+	}
+	#start .input {
+		width: 80%;
+	}
+	#start .search_container .inner {
+		padding: 12% 2em 5% 2em;
+	}
+	#start .search_container .search_content {
+		width: 80%;
+	}
+}
+#container {
+	padding-top: 5.625em;
+}
+
+#page1 {
+	padding: 0 3em;
+	margin: 0 auto;
+	max-width: 1600px;
+	box-sizing: border-box;
+}
+#page1 .title h2 {
+	padding-top: 2.125em;
+	font-size: 3em;
+	font-weight: 500;
+	transition: all 0.3s ease-out;
+}
+#page1 .title span {
+	display: block;
+	margin-top: 5px;
+	font-size: 1.375em;
+	transition: all 0.3s ease-out;
+}
+#page1 .content {
+	position: relative;
+	margin-top: 2.8125em;
+	overflow: hidden;
+}
+#page1 .text {
+	position: absolute;
+	right: 0;
+	bottom: 0;
+	padding: 2.25em 0 1em 2.25em;
+	width: 45%;
+	background-color: #fff;
+}
+#page1 .text p {
+	line-height: 1.875em;
+	transition: all 0.3s ease-out;
+}
+@media only screen and (max-width: 930px) {
+	#page1 .title h2 {
+		font-size: 3.5em;
+	}
+	#page1 .title span {
+		font-size: 1.75em;
+	}
+	#page1 .text p {
+		padding-bottom: 1em;
+		font-size: 1.75em;
+		transition: all 0.3s ease-out;
+	}
+	#page1 .text p br {
+		display: none;
+	}
+	#page1 .text {
+		position: static;
+		padding: 2.25em 0;
+		width: 100%;
+		background-color: transparent;
+	}
+}
+@media only screen and (max-width: 720px) {
+	#page1 .title h2 {
+		font-size: 3em;
+	}
+	#page1 .title span {
+		font-size: 1.625em;
+	}
+	#page1 .text p {
+		font-size: 1.5em;
+	}
+}
+
+#page2 {
+	padding: 6.25em 3em 6.25em 3em;
+	margin: 0 auto;
+	max-width: 1600px;
+	box-sizing: border-box;
+}
+#page2 h2::before {
+	content: "";
+	position: absolute;
+	top: 50%;
+	left: 0;
+	width: 30px;
+	height: 30px;
+	background: url(../images/icon-latest.svg) no-repeat;
+	transform: translateY(-50%);
+}
+#page2 .content {
+	position: relative;
+	display: flex;
+	align-items: flex-end;
+	padding-top: 2em;
+	width: 100%;
+	gap: 2em;
+}
+#page2 .content .left {
+	display: inline-block;
+	position: sticky;
+	bottom: -10px;
+	width: calc((100% - 2em)/2);
+}
+#page2 .content .left .image {
+	position: relative;
+    overflow: hidden;
+}
+#page2 .content .left .image a {
+	display: inline-block;
+}
+#page2 .content .left .image a img.mobile {
+	display: none;
+}
+#page2 .content .left .image a img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+#page2 .content .left .text {
+	padding-top: 2em;
+}
+#page2 .content .right {
+	width: calc((100% - 2em)/2);
+	overflow: hidden;
+}
+#page2 .content .right .image_box {
+	display: flex;
+	gap: 2.5em;
+}
+#page2 .content .right .image_box .image {
+	width: 50%;
+}
+#page2 .content .image_box .text {
+	width: 50%;
+}
+#page2 .content .image_box .text h3 a {
+	display: block;
+	padding: 0 0 10px 0;
+	font-size: 1.625em;
+	font-weight: 700;
+	transition: all 0.3s ease-out;
+}
+#page2 .content p {
+	display: inline-block;
+	line-height: 2em;
+	padding-top: 1.75em;
+}
+#page2 .content span {
+	display: inline-block;
+	line-height: 2em;
+}
+#page2 .content ul li span {
+	margin-top: 5px;
+}
+#page2 .content .right ul li:not(:first-child) {
+	padding-top: 2.5em;
+}
+#page2 .content .right ul li:not(:last-child) i {
+	padding-bottom: 3.5em;
+	border-bottom: 1px solid #ccc;
+}
+@media only screen and (max-width: 930px) {
+	#page2 .content {
+		display: block;
+	}
+	#page2 .content p {
+		display: none;
+	}
+	#page2 .content .left {
+		display: block;
+		position: static;
+		width: 100%;	
+	}	
+	#page2 .content .left .image a img.pc {
+		display: none;
+	}
+	#page2 .content .left .image a img.mobile {
+		display: block;
+	}
+	#page2 .content .left .text {
+		padding-top: 0em;
+	}
+	#page2 .content .left span {
+		font-size: 1.75em;
+		padding-bottom: 1em;
+	}
+	#page2 .content .right {
+		display: block;
+		width: 100%;
+	}
+	#page2 .content .right .image_box {
+		display: block;
+	}
+	#page2 .content .right .image_box .image {
+		width: 100%;
+	}
+	#page2 .content .image_box .text {
+		width: 100%;
+	}
+	#page2 .content .image_box .text h3 a {
+		padding: 1em 0;
+		font-size: 2em;
+	}
+	#page2 .content .image_box .text h3 a br {
+		display: none;
+	}
+	#page2 .content .left i {
+		padding-bottom: 1em;
+	}
+	#page2 .content .right ul li:not(:last-child) i {
+		padding-bottom: 1em;
+		border-bottom: 1px solid transparent
+	}
+}
+@media only screen and (max-width: 750px) {
+	#page2 .content ul li:not(:last-child) .image_box .text h3 a br {
+		display: block;
+	}
+}
+
+#page3 a.mobile {
+	display: none;
+}
+#page3 video {
+	display: block;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+@media only screen and (max-width: 930px) {
+	#page3 a.pc {
+		display: none;
+	} 
+	#page3 a.mobile {
+		display: block;
+	}
+}
+
+#page4 {
+	padding: 6.25em 3em 6.25em 3em;
+	margin: 0 auto;
+	max-width: 1600px;
+	box-sizing: border-box;
+}
+#page4 .title {
+	padding-bottom: 0.875em;
+}
+#page4 h2::before {
+	content: "";
+	position: absolute;
+	top: 50%;
+	left: 0;
+	width: 30px;
+	height: 30px;
+	background: url(../images/icon-sort-by.svg) no-repeat;
+	transform: translateY(-50%);
+}
+#page4 .content > .depth1 > li {
+	padding: 5% 0;
+	border-bottom: 1px solid #ccc;
+}
+#page4 .content > .depth1 > li.active {
+	padding: 5% 0 10% 0;
+}
+#page4 .content > .depth1 > li:first-child {
+	border-top: 1px solid #ccc;
+}
+#page4 .content > .depth1 > li > a {
+	display: block;
+	position: relative;
+	font-size: 2.5em;
+	font-weight: 600;
+	transition: all 0.3s ease-out;
+}
+#page4 .content > .depth1 > li > a::before {
+	content: '';
+    display: block;
+    position: absolute;
+    top: 51%;
+    right: 37px;
+    transform: translate(0, -50%) rotate(225deg);
+    width: 16px;
+    height: 16px;
+    border-top: 2px solid #000;
+    border-left: 2px solid #000;
+}
+#page4 .content > .depth1 > li.active > a::before {
+	transform: translate(0, -25%) rotate(45deg);
+}
+#page4 .content .depth1 li .depth2 {
+	display: none;
+}
+#page4 .content .depth1 li.active .depth2 {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 1.5em;	
+}
+#page4 .content .depth1 li .depth2 p {
+	display: inline-block;
+	padding-top: 10px;
+	font-size: 1.125em;
+	width: 100%;
+}
+#page4 .content .depth1 li .depth2 li {
+	padding-top: 1.5em;
+	width: calc((100% - 3em)/3);
+}
+
+@media only screen and (max-width: 930px) {
+	#page4 i {
+		padding-top: 1em;
+	}
+	#page4 .content > .depth1 > li {
+		padding: 8% 0;
+	}
+	#page4 .content > .depth1 > li.active {
+		padding: 8% 0 12% 0;
+	}
+	#page4 .content .depth1 li .depth2 p {
+		padding-top: 1em;
+		font-size: 1.625em;
+		line-height: 1.8;
+	}
+	#page4 .content .depth1 li.active .depth2 {
+		display: block;
+	}
+	#page4 .content .depth1 li .depth2 li {
+		width: 100%;
+	}
+}
+@media only screen and (max-width: 720px) {
+	#page4 .content > .depth1 > li > a {
+		font-size: 2em;
+	}
+}
+
+
+#page5 {
+	background-color: #faf6f4;
+	overflow: hidden;
+}
+#page5 .inner{
+	position: relative;
+	padding: 6.25em 3em 12.25em 3em;
+	margin: 0 auto;
+	max-width: 1600px;
+	box-sizing: border-box;
+}
+#page5 h2::before {
+	content: "";
+	position: absolute;
+	top: 50%;
+	left: 0;
+	width: 30px;
+	height: 30px;
+	background: url(../images/icon-more-stories.svg) no-repeat;
+	transform: translateY(-50%);
+}
+#page5 .wrapper .content ul li .image img.mobile {
+	display: none;
+}
+#page5 .button {
+	position: absolute;
+	left: 50%;
+	bottom: 2.75em;
+	width: 100%;
+	animation: scroll 0.8s ease-in-out infinite alternate;
+}
+#page5 .button a {
+	display: inline-block;
+	line-height: 1.5;
+	font-size: 1.25em;
+	font-weight: 600;
+}
+#page5 .button a span::before {
+	content: "";
+    display: block;
+    width: 1px;
+    height: 30px;
+    margin: 0 auto;
+    background-color: #000;
+}
+@media only screen and (min-width: 931px) {
+	#page5 .content ul {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 1.5em;	
+	}
+	#page5 .content ul li {
+		padding-top: 1.5em;
+		width: calc((100% - 3em)/3);
+		overflow: hidden;
+	}
+}
+@media only screen and (max-width: 930px) {
+	#page5 i {
+		padding-top: 1em;
+	}
+	#page5 .wrapper {
+		padding-top: 3em;
+		width: 100%;
+		overflow: hidden;
+	}
+	#page5 .swiper {
+		width: 100%;
+		height: 100%;
+	}
+	#page5 .wrapper .content ul li .image img.pc {
+		display: none;
+	}
+	#page5 .wrapper .content ul li .image img.mobile {
+		display: block;
+	}
+}
+
+#page6 {
+	position: relative;
+	padding: 6.25em 3em 12.25em 3em;
+	margin: 0 auto;
+	max-width: 1600px;
+	overflow: hidden;
+	box-sizing: border-box;
+}
+#page6 h2::before {
+	content: "";
+	position: absolute;
+	top: 50%;
+	left: 0;
+	width: 30px;
+	height: 30px;
+	background: url(../images/icon-news.svg) no-repeat;
+	transform: translateY(-50%);
+}
+#page6 .content ul li p {
+	font-size: 1.125em;
+	line-height: 1.75;
+}
+#page6 .button {
+	position: absolute;
+	left: 50%;
+	bottom: 2.75em;
+	width: 100%;
+	animation: scroll 0.8s ease-in-out infinite alternate;
+}
+#page6 .button a {
+	display: inline-block;
+	line-height: 1.5;
+	font-size: 1.25em;
+	font-weight: 600;
+}
+#page6 .button a span::before {
+	content: "";
+    display: block;
+    width: 1px;
+    height: 30px;
+    margin: 0 auto;
+    background-color: #000;
+}
+@keyframes scroll {
+	0% {
+		bottom: 2.75em;
+	}
+	100% {
+		bottom: 3.75em;
+	}
+}
+@media only screen and (min-width: 931px) {
+	#page6 .content ul {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 1.5em;	
+	}
+	#page6 .content ul li {
+		padding-top: 1.5em;
+		width: calc((100% - 3em)/3);
+		overflow: hidden;
+	}
+}
+@media only screen and (max-width: 930px) {
+	#page6 i {
+		padding-top: 1em;
+	}
+	#page6 .wrapper {
+		padding-top: 3em;
+		width: 100%;
+		overflow: hidden;
+	}
+	#page6 .swiper {
+		width: 100%;
+		height: 100%;
+	}
+	#page6 .wrapper .content ul li h3 a br {
+		display: none;
+	}
+	#page6 .wrapper .content ul li p {
+		font-size: 1.375em;
+	}
+	#page6 .wrapper .content ul li p br {
+		display: none;
+	}
+	
+}
+
+footer {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 0 3em;
+	font-size: 0.875em;
+	font-weight: 500;
+}
+footer .left {
+	display: flex;
+	align-items: center;
+	gap: 2em;
+}
+footer .ft_logo h1 a {
+	display: inline-block;
+	font-size: 0;
+	text-indent: -9999px;
+	width: 88px;
+	height: 30px;
+	background: url(../images/footer-logo-samsung-design-svg.svg) no-repeat;
+}
+footer .private ul {
+	display: flex;
+	gap: 2em;
+}
+footer .private ul li {
+	position: relative;
+}
+footer .private ul li::before {
+	content: "";
+	position: absolute;
+	top: 50%;
+	left: -1em;
+	width: 1px;
+	height: 1em;
+	background-color: #000;
+	transform: translateY(-50%);
+}
+footer .private ul li a {
+	display: block;	
+}
+footer .right nav ul {
+	display: flex;
+	gap: 2em;
+}
+@media only screen and (max-width: 1200px) {
+	footer .right {
+		display: none;
+	}
+}
+@media only screen and (max-width: 930px) {
+	footer .left span {
+		display: block;
+		padding-top: 12px;
+		font-size: 1.5em;
+	}
+	footer .left {
+		display: block;
+	}
+	footer .ft_logo h1 a {
+		width: 118px;
+		height: 18px;
+		background-size: cover;
+	}	
+	footer .private {
+		padding-top: 10px;
+	}
+	footer .private ul li:first-child:before {
+		width: 0;
+		height: 0;
+		background-color: transparent;
+	}
+	footer .private ul li a {
+		font-size: 1.25em;		
+	}
+}
