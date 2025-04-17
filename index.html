@@ -11,6 +11,9 @@
 <link rel="stylesheet" href="css/style.css">
 <!-- <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script> -->
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/ScrollTrigger.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/ScrollToPlugin.min.js"></script>
 <script src="js/main.js"></script>
 <!-- <script>
 	$(function(){
@@ -142,7 +145,7 @@
 					</nav>
 				</div>
 				<div class="right">
-					<div class="index">
+					<div class="roll">
 						<ul>
 							<li><a href="">#Meet_the_Designers</a></li>
 							<li><a href="">#Essence_of_Galaxy_S</a></li>
@@ -201,11 +204,13 @@
 			<div class="content">
 				<div class="image"><a href=""><img src="images/ourstories-galaxy-ai.jpg" alt="ourstories-galaxy-ai"></a></div>
 				<div class="text">
-					<p>
-						갤럭시 AI가 우리 일상에 한 걸음 더 가까이 다가올 수 있도록, 일관된 경험과 편리한 사용성을 바탕으로<br>
-						새로이 다듬었습니다. AI 시대에 새로운 패러다임을 만들어가는 갤럭시 AI를 만나보세요.
-					</p>
-					<i>Our Stories&nbsp;&nbsp;|&nbsp;&nbsp;Jan 23, 2025</i>
+					<div class="inner">
+						<p>
+							갤럭시 AI가 우리 일상에 한 걸음 더 가까이 다가올 수 있도록, 일관된 경험과 편리한 사용성을 바탕으로<br>
+							새로이 다듬었습니다. AI 시대에 새로운 패러다임을 만들어가는 갤럭시 AI를 만나보세요.
+						</p>
+						<i>Our Stories&nbsp;&nbsp;|&nbsp;&nbsp;Jan 23, 2025</i>
+					</div>
 				</div>
 			</div>
 		</section>
@@ -215,21 +220,19 @@
 			</div>
 			<div class="content">
 				<div class="left">
-					<div class="image_box">
-						<div class="image">
-							<a href="">
-								<img src="images/ourstories-over-the-horizon-m.jpg" alt="ourstories-over-the-horizon-m" class="pc">
-								<img src="images/ourstories-over-the-horizon.jpg" alt="ourstories-over-the-horizon" class="mobile">
-							</a>
-						</div>
-						<div class="text">
-							<h3><a href="">Over the Horizon</a></h3>
-							<span>삼성 갤럭시 사운드 브랜딩 스토리</span>
-						</div>
+					<div class="image">
+						<a href="">
+							<img src="images/ourstories-over-the-horizon-m.jpg" alt="ourstories-over-the-horizon-m" class="pc">
+							<img src="images/ourstories-over-the-horizon.jpg" alt="ourstories-over-the-horizon" class="mobile">
+						</a>
 					</div>
+					<div class="text">
+						<h3><a href="">Over the Horizon</a></h3>
+						<span>삼성 갤럭시 사운드 브랜딩 스토리</span>
 						<p>2011년부터 매년 변화하는 시대상을 반영하며 다채로운 선율을 선보이고 있는 삼성 갤럭시의 대표<br>
 							사운드 브랜딩 캠페인. 오버 더 호라이즌의 사운드 디자인 스토리를 만나보세요.</p>
 						<i>Our Stories&nbsp;&nbsp;|&nbsp;&nbsp;Feb 10, 2025</i>
+					</div>		
 				</div>
 				<div class="right">
 					<ul>
@@ -244,10 +247,12 @@
 									<h3><a href="">2025 삼성전자 디자인<br>온라인 채용설명회</a></h3>
 								</div>
 							</div>
-							<p>
-								2025년 삼성전자 디자인 신입 공채 또는 대학생 인턴 지원자를 위한 온라인 채용설명회를 진행합니다.
-							</p>
-							<i>News&nbsp;&nbsp;|&nbsp;&nbsp;Mar 10, 2025</i>
+							<div class="inner">
+								<p>
+									2025년 삼성전자 디자인 신입 공채 또는 대학생 인턴 지원자를 위한 온라인 채용설명회를 진행합니다.
+								</p>
+								<i>News&nbsp;&nbsp;|&nbsp;&nbsp;Mar 10, 2025</i>
+							</div>
 						</li>
 						<li>
 							<div class="image_box">
@@ -260,11 +265,13 @@
 									<h3><a href="">2025 iF 디자인어워드</a></h3>
 								</div>
 							</div>
-							<p>
-								삼성전자가 독일의 국제 디자인 공모전 ‘iF 디자인 어워드 2025(International Forum Design Award<br>
-								2025)’에서 금상 2개를 비롯해 총 58개의 상을 받았습니다.
-							</p>
-							<i>News&nbsp;&nbsp;|&nbsp;&nbsp;Feb 28, 2025</i>
+							<div class="inner">
+								<p>
+									삼성전자가 독일의 국제 디자인 공모전 ‘iF 디자인 어워드 2025(International Forum Design Award<br>
+									2025)’에서 금상 2개를 비롯해 총 58개의 상을 받았습니다.
+								</p>
+								<i>News&nbsp;&nbsp;|&nbsp;&nbsp;Feb 28, 2025</i>
+							</div>
 						</li>
 						<li>
 							<div class="image_box">
@@ -278,12 +285,14 @@
 									<span>강렬한 아이덴티티의 완성, 갤럭시 S25 시리즈</span>
 								</div>
 							</div>
-							<p>
-								갤럭시 S 시리즈의 디자인 정체성을 더욱 강화하며 시그니처 룩을 완성한 갤럭시 S25 시리즈. 빠르게<br>
-								변화하는 시대, 사람들이 갈망하는 새로움 속에서도 스마트폰의 본질에 도달하기 위해 끊임없이 진보하는<br>
-								갤럭시 S25 시리즈의 이야기를 만나보세요.
-							</p>
-							<i>Our Stories&nbsp;&nbsp;|&nbsp;&nbsp;Jan 23, 2025</i>
+							<div class="inner">
+								<p>
+									갤럭시 S 시리즈의 디자인 정체성을 더욱 강화하며 시그니처 룩을 완성한 갤럭시 S25 시리즈. 빠르게<br>
+									변화하는 시대, 사람들이 갈망하는 새로움 속에서도 스마트폰의 본질에 도달하기 위해 끊임없이 진보하는<br>
+									갤럭시 S25 시리즈의 이야기를 만나보세요.
+								</p>
+								<i>Our Stories&nbsp;&nbsp;|&nbsp;&nbsp;Jan 23, 2025</i>
+							</div>
 						</li>
 						<li>
 							<div class="image_box">
@@ -297,13 +306,15 @@
 									<span>본질에 집중한 모바일 경험, One UI 7</span>
 								</div>
 							</div>
-							<p>
-								본질에 집중한 모바일 경험, One UI 7
-								단순히 기능 사용뿐만 아니라 풍부한 감성과 시각적 즐거움을 추구하며 일상의 가능성을 확장합니다.
-								기술과 사용자의 접점에서 탄탄한 기본기와 감도 높은 비주얼로 모바일 경험의 본질을 구현한 One UI
-								7을 만나보세요.
-							</p>
-							<i>Our Stories&nbsp;&nbsp;|&nbsp;&nbsp;Jan 23, 2025</i>
+							<div class="inner">
+								<p>
+									본질에 집중한 모바일 경험, One UI 7
+									단순히 기능 사용뿐만 아니라 풍부한 감성과 시각적 즐거움을 추구하며 일상의 가능성을 확장합니다.
+									기술과 사용자의 접점에서 탄탄한 기본기와 감도 높은 비주얼로 모바일 경험의 본질을 구현한 One UI
+									7을 만나보세요.
+								</p>
+								<i>Our Stories&nbsp;&nbsp;|&nbsp;&nbsp;Jan 23, 2025</i>
+							</div>
 						</li>
 					</ul>
 				</div>
