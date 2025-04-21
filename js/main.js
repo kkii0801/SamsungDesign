@@ -1,4 +1,4 @@
-window.addEventListener("DOMContentLoaded",function(){
+window.addEventListener("load",function(){
 
 	// #start
 
@@ -147,6 +147,7 @@ window.addEventListener("DOMContentLoaded",function(){
 				trigger : "#page2",
 				start: "top center",
 				end: "bottom center",
+				markers: true
 			}
 		})
 
@@ -166,6 +167,7 @@ window.addEventListener("DOMContentLoaded",function(){
 					trigger : item,
 					start: "top center",
 					end: "bottom center",
+					markers: true
 				}
 			})
 			page2RTl.fromTo(right_img[i], {y: 80, opacity: 0},{ y : 0, opacity: 1, duraiton: 0.1}, "a")
@@ -175,65 +177,50 @@ window.addEventListener("DOMContentLoaded",function(){
 
 		// #page4 == SORT BY
 
-		let sortList=document.querySelectorAll("#page4 .depth1 > li");
-		let titleP=document.querySelectorAll("#page4 .depth2 p");
-		let sort_img=document.querySelectorAll("#page4 ul ul .image");
+		let newsList=document.querySelectorAll("#page4 .depth1 > li");
+		let newsFlag=false;
 
-		let liH3=document.querySelectorAll("#page4 ul ul h3");
-		let liSpan=document.querySelectorAll("#page4 ul ul span");
-		let liI=document.querySelectorAll("#page4 ul ul i");
+		newsList.forEach(function(item1, i){
+			let [titleA, p, depth2]=item1.children;
 
-		const page4Tl=gsap.timeline({
-			scrollTrigger: {
-				trigger : "page4",
-				start: "top center",
-				end: "bottom center",
-				markers: true
-			}
-		})
-
-		sortList.forEach(function(item, i){
-			item.firstElementChild.addEventListener("click", function(e){
-				e.preventDefault();
-
-				item.classList.toggle("active");
+			item1.tl=gsap.timeline({
+				scrollTrigger: {
+					trigger : "#page4",
+					start: "top center",
+					end: "bottom center",
+					markers: true,
+					onEnter: function(){
+						if(i == 0 && newsFlag == false){
+							newsFlag=true;
+							activeList(i);
+						}
+					}
+				}
 			});
 
-			if(item.classList.contains("active")){
-				page4Tl.fromTo(titleP[i], {y: 30, opacity: 0},{ y : 0, opacity: 1,duraiton: 0.5})
+			item1.tl.set(depth2.children, { y: 50, opacity: 0 });
 
-				page4Tl.fromTo(sort_img[0], {y: 50, opacity: 0},{ y : 0, opacity: 1,duraiton: 0.5}, "a")
-				page4Tl.fromTo(sort_img[1], {y: 50, opacity: 0},{ y : 0, opacity: 1,delay: 0.1,duraiton: 0.5}, "a")
-				page4Tl.fromTo(sort_img[2], {y: 50, opacity: 0},{ y : 0, opacity: 1,delay: 0.2,duraiton: 0.5}, "a")
+			function activeList(n){
+				newsList.forEach(function(item, i){
+					let depth2=item.lastElementChild;
 
-				page4Tl.fromTo(liH3[0], {y: 50, opacity: 0},{ y : 0, opacity: 1,duraiton: 0.5}, "a")
-				page4Tl.fromTo(liH3[1], {y: 50, opacity: 0},{ y : 0, opacity: 1,delay: 0.1,duraiton: 0.5}, "a")
-				page4Tl.fromTo(liH3[2], {y: 50, opacity: 0},{ y : 0, opacity: 1,delay: 0.2,duraiton: 0.5}, "a")
+					if(i == n){
+						item.classList.add("active");
 
-				page4Tl.fromTo(liSpan[0], {y: 50, opacity: 0},{ y : 0, opacity: 1,duraiton: 0.5}, "a")
-				page4Tl.fromTo(liSpan[1], {y: 50, opacity: 0},{ y : 0, opacity: 1,delay: 0.1,duraiton: 0.5}, "a")
-				page4Tl.fromTo(liSpan[2], {y: 50, opacity: 0},{ y : 0, opacity: 1,delay: 0.2,duraiton: 0.5}, "a")
-
-				page4Tl.fromTo(liI[0], {y: 50, opacity: 0},{ y : 0, opacity: 1,duraiton: 0.5}, "a")
-				page4Tl.fromTo(liI[1], {y: 50, opacity: 0},{ y : 0, opacity: 1,delay: 0.1,duraiton: 0.5}, "a")
-				page4Tl.fromTo(liI[2], {y: 50, opacity: 0},{ y : 0, opacity: 1,delay: 0.2,duraiton: 0.5}, "a")
-
-
-				page4Tl.fromTo(sort_img[3], {y: 50, opacity: 0},{ y : 0, opacity: 1,duraiton: 0.5}, "b")
-				page4Tl.fromTo(sort_img[4], {y: 50, opacity: 0},{ y : 0, opacity: 1,delay: 0.1,duraiton: 0.5}, "b")
-				page4Tl.fromTo(sort_img[5], {y: 50, opacity: 0},{ y : 0, opacity: 1,delay: 0.2,duraiton: 0.5}, "b")
-
-				page4Tl.fromTo(liH3[3], {y: 50, opacity: 0},{ y : 0, opacity: 1,duraiton: 0.5}, "b")
-				page4Tl.fromTo(liH3[4], {y: 50, opacity: 0},{ y : 0, opacity: 1,delay: 0.1,duraiton: 0.5}, "b")
-				page4Tl.fromTo(liH3[5], {y: 50, opacity: 0},{ y : 0, opacity: 1,delay: 0.2,duraiton: 0.5}, "b")
-
-				page4Tl.fromTo(liSpan[3], {y: 50, opacity: 0},{ y : 0, opacity: 1,duraiton: 0.5}, "b")
-				page4Tl.fromTo(liSpan[4], {y: 50, opacity: 0},{ y : 0, opacity: 1,delay: 0.1,duraiton: 0.5}, "b")
-				page4Tl.fromTo(liSpan[5], {y: 50, opacity: 0},{ y : 0, opacity: 1,delay: 0.2,duraiton: 0.5}, "b")
-
-				page4Tl.fromTo(liI[3], {y: 50, opacity: 0},{ y : 0, opacity: 1,duraiton: 0.5}, "b")
-				page4Tl.fromTo(liI[4], {y: 50, opacity: 0},{ y : 0, opacity: 1,delay: 0.1,duraiton: 0.5}, "b")
-				page4Tl.fromTo(liI[5], {y: 50, opacity: 0},{ y : 0, opacity: 1,delay: 0.2,duraiton: 0.5}, "b")
+						item.tl.to(depth2.children, { y: 0, opacity: 1, duration: 0.35, stagger: 0.25, onComplete: function(){
+						}});
+					}
+					else{
+						item.classList.remove("active");
+						item.tl.set(depth2.children, { y: 50, opacity: 0 });
+					}
+				});
 			}
+
+			titleA.addEventListener("click", function(e){
+				e.preventDefault();
+
+				activeList(i);
+			});
 		});
 });
