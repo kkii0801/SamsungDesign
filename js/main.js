@@ -128,9 +128,8 @@ window.addEventListener("load",function(){
 		const page1Tl=gsap.timeline({
 			scrollTrigger : {
 				trigger : "#page1",
-				start: "top center",
-				end: "bottom center",
-				markers : true
+				start: "top 0%",
+				end: "bottom 0%",
 			}
 		});
 
@@ -147,12 +146,11 @@ window.addEventListener("load",function(){
 				trigger : "#page2",
 				start: "top center",
 				end: "bottom center",
-				markers: true
 			}
 		})
 
 		page2LTl.fromTo(left_img, {y: 100, opacity: 0},{ y : 0, opacity: 1, duraiton: 0.3})
-		page2LTl.fromTo(leftText, {y: 30, opacity: 0},{ y : 0, opacity: 1 ,duraiton: 0.5})
+		page2LTl.fromTo(leftText, {y: 30, opacity: 0},{ y : 0, opacity: 1 ,duraiton: 0.4})
 
 		// right
 
@@ -167,12 +165,11 @@ window.addEventListener("load",function(){
 					trigger : item,
 					start: "top center",
 					end: "bottom center",
-					markers: true
 				}
 			})
 			page2RTl.fromTo(right_img[i], {y: 80, opacity: 0},{ y : 0, opacity: 1, duraiton: 0.1}, "a")
-			page2RTl.fromTo(rigthText[i], {y: 30, opacity: 0},{ y : 0, opacity: 1,duraiton: 0.5}, "b")
-			page2RTl.fromTo(right_innertext[i], {y: 30, opacity: 0},{ y : 0, opacity: 1,duraiton: 0.5}, "b")
+			page2RTl.fromTo(rigthText[i], {y: 30, opacity: 0},{ y : 0, opacity: 1,duraiton: 0.4}, "b")
+			page2RTl.fromTo(right_innertext[i], {y: 30, opacity: 0},{ y : 0, opacity: 1,duraiton: 0.4}, "b")
 		});
 
 		// #page4 == SORT BY
@@ -181,14 +178,16 @@ window.addEventListener("load",function(){
 		let newsFlag=false;
 
 		newsList.forEach(function(item1, i){
-			let [titleA, p, depth2]=item1.children;
+
+			item1.classList.add("acitve");
+
+			let [titleA, wrapper]=item1.children;
 
 			item1.tl=gsap.timeline({
 				scrollTrigger: {
 					trigger : "#page4",
 					start: "top center",
 					end: "bottom center",
-					markers: true,
 					onEnter: function(){
 						if(i == 0 && newsFlag == false){
 							newsFlag=true;
@@ -198,17 +197,19 @@ window.addEventListener("load",function(){
 				}
 			});
 
+			let depth2=wrapper.lastElementChild;
+
 			item1.tl.set(depth2.children, { y: 50, opacity: 0 });
+			item1.tl.fromTo(wrapper.firstElementChild, {y: 50, opacity: 0} ,{ y: 0, opacity: 1, duration: 0.4 })
 
 			function activeList(n){
 				newsList.forEach(function(item, i){
-					let depth2=item.lastElementChild;
-
+					
 					if(i == n){
 						item.classList.add("active");
-
-						item.tl.to(depth2.children, { y: 0, opacity: 1, duration: 0.35, stagger: 0.25, onComplete: function(){
+						item.tl.to(depth2.children, { y: 0, opacity: 1, duration: 0.4, stagger: 0.4, onComplete: function(){
 						}});
+						
 					}
 					else{
 						item.classList.remove("active");
@@ -222,5 +223,49 @@ window.addEventListener("load",function(){
 
 				activeList(i);
 			});
+
+			window.addEventListener('resize', function() {
+				if (item1.classList.contains("active")) {
+					item1.tl.set(depth2.children, { y: 50, opacity: 0 });
+					item1.tl.to(depth2.children, { y: 0, opacity: 1, duration: 0.4, stagger: 0.4 });
+				}
+			});
+
 		});
+
+
+		// #page5 == MORE STORIES
+
+		let page5List=document.querySelectorAll("#page5 .content ul li")
+		let page5Btn=document.querySelector("#page5 .button")
+
+		const page5Tl= gsap.timeline({
+				scrollTrigger: {
+					trigger : "#page5",
+					start: "top center",
+					end: "bottom center",
+				}
+		})
+
+		page5Tl.fromTo(page5List, {y: 50, opacity: 0} ,{ y: 0, opacity: 1, duration: 0.4, stagger: 0.4 })
+		page5Tl.fromTo(page5Btn, {y: 50, opacity: 0} ,{ y: 0, opacity: 1, duration: 0.4})
+
+
+		// #page6 == NEWS
+
+		let page6List=document.querySelectorAll("#page6 .content ul li")
+		let page6Btn=document.querySelector("#page6 .button")
+
+		const page6Tl= gsap.timeline({
+				scrollTrigger: {
+					trigger : "#page6",
+					start: "top center",
+					end: "bottom center",
+				}
+		})
+
+		page6Tl.fromTo(page6List, {y: 50, opacity: 0} ,{ y: 0, opacity: 1, duration: 0.4, stagger: 0.4 })
+		page6Tl.fromTo(page6Btn, {y: 50, opacity: 0} ,{ y: 0, opacity: 1, duration: 0.4})
+
+		
 });
