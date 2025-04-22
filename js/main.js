@@ -172,14 +172,32 @@ window.addEventListener("load",function(){
 			page2RTl.fromTo(right_innertext[i], {y: 30, opacity: 0},{ y : 0, opacity: 1,duraiton: 0.4}, "b")
 		});
 
+		// #page3 , video
+
+		let videoBanner=document.querySelector("#page3 .banner")
+		let pcVideo=document.getElementById("pc_video");
+		let mobileVideo=document.getElementById("mobile_video");
+
+		videoBanner.addEventListener("mouseenter", function(){
+			pcVideo.play();
+			mobileVideo.play();
+			
+		});
+		videoBanner.addEventListener("mouseleave", function(){
+			pcVideo.pause();
+			mobileVideo.pause();
+		});
+
 		// #page4 == SORT BY
 
 		let newsList=document.querySelectorAll("#page4 .depth1 > li");
 		let newsFlag=false;
 
+		gsap.registerPlugin(ScrollTrigger);
+
 		newsList.forEach(function(item1, i){
 
-			item1.classList.add("acitve");
+			newsList[0].classList.add("acitve");
 
 			let [titleA, wrapper]=item1.children;
 
@@ -201,6 +219,8 @@ window.addEventListener("load",function(){
 
 			item1.tl.set(depth2.children, { y: 50, opacity: 0 });
 			item1.tl.fromTo(wrapper.firstElementChild, {y: 50, opacity: 0} ,{ y: 0, opacity: 1, duration: 0.4 })
+
+			
 
 			function activeList(n){
 				newsList.forEach(function(item, i){
@@ -231,6 +251,8 @@ window.addEventListener("load",function(){
 				}
 			});
 
+			// ScrollTrigger.refresh();
+
 		});
 
 
@@ -244,6 +266,7 @@ window.addEventListener("load",function(){
 					trigger : "#page5",
 					start: "top center",
 					end: "bottom center",
+					markers: true,
 				}
 		})
 
@@ -253,7 +276,7 @@ window.addEventListener("load",function(){
 
 		// #page6 == NEWS
 
-		let page6List=document.querySelectorAll("#page6 .content ul li")
+		let page6Image=document.querySelectorAll("#page6 .content ul li .image")
 		let page6Btn=document.querySelector("#page6 .button")
 
 		const page6Tl= gsap.timeline({
@@ -261,10 +284,11 @@ window.addEventListener("load",function(){
 					trigger : "#page6",
 					start: "top center",
 					end: "bottom center",
+					markers: true
 				}
 		})
 
-		page6Tl.fromTo(page6List, {y: 50, opacity: 0} ,{ y: 0, opacity: 1, duration: 0.4, stagger: 0.4 })
+		page6Tl.fromTo(page6Image, {y: 50, opacity: 0} ,{ y: 0, opacity: 1, duration: 0.4, stagger: 0.4 })
 		page6Tl.fromTo(page6Btn, {y: 50, opacity: 0} ,{ y: 0, opacity: 1, duration: 0.4})
 
 		
