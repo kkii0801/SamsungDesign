@@ -266,7 +266,7 @@ window.addEventListener("load",function(){
 					trigger : "#page5",
 					start: "top center",
 					end: "bottom center",
-					markers: true,
+					// markers: true,
 				}
 		})
 
@@ -284,7 +284,7 @@ window.addEventListener("load",function(){
 					trigger : "#page6",
 					start: "top center",
 					end: "bottom center",
-					markers: true
+					// markers: true
 				}
 		})
 
